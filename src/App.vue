@@ -1,30 +1,61 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-app-bar
+      app
+      color="black"
+      dark
+    >
+    <div class="d-flex align-center">
+        
+         <v-img
+          alt="Marvel Logo"
+          class="shrink mt-1"
+          contain
+          min-width="100"
+          src="./assets/marvel-logo.png"
+          width="100"
+        />
+        <v-img
+          alt="agentsshield"
+          class="shrink mr-2"
+          contain
+          src="./assets/comicsMarvelF.png"
+          transition="scale-transition"
+          width="70"
+        />
+      </div>
+    </v-app-bar>
+    <v-main>
+      <router-view/>
+    </v-main>
+    <v-footer
+    class="bg-black"
+  >
+    <v-row
+      justify="center"
+      no-gutters
+    >
+      <v-col
+        class="text-center text-white mt-4"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>CursoFrontEnd Kibernum</strong>
+      </v-col>
+    </v-row>
+    </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  data: () => ({
+    
+  }),
 }
+</script>
+<style scoped>
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
