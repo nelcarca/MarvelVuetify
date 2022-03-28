@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     heros: [],
-    herosFilter: []
+    herosFilter: [],
+    HerosSelected: {}
   },
   getters: {
   },
@@ -13,6 +14,10 @@ export default createStore({
     },
     setHerosFilter(state, payload) {
       state.herosFilter = payload
+    },
+    setHerosSelected(state, payload){
+      console.log("eres el selected");
+      state.HerosSelected = payload
     }
   },
   actions: {
@@ -34,6 +39,9 @@ export default createStore({
       } catch (error) {
         console.log(error);        
       }
+    },
+    selectedHeros ({commit}, payload) {
+      commit ('setHerosSelected', payload)
     }
   },
   modules: {

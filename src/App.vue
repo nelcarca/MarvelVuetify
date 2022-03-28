@@ -1,11 +1,16 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="black"
-      dark
+    <v-main>
+      <v-app-bar
+    color="black"   
     >
-    <div class="d-flex align-center">
+    <template v-slot:image>
+          <v-img
+            src="./assets/SkyLinefinal.png"
+          ></v-img>
+    </template>
+    <router-link to="/">
+      <div class="d-flex align-center justify-center">
         
          <v-img
           alt="Marvel Logo"
@@ -16,16 +21,19 @@
           width="100"
         />
         <v-img
-          alt="agentsshield"
+          alt="comics"
           class="shrink mr-2"
           contain
           src="./assets/comicsMarvelF.png"
           transition="scale-transition"
           width="70"
         />
+
       </div>
-    </v-app-bar>
-    <v-main>
+      </router-link>
+      <v-spacer></v-spacer>
+        <v-btn variant="text" icon="mdi-magnify" ></v-btn>
+      </v-app-bar>
       <router-view/>
     </v-main>
     <v-footer
@@ -39,7 +47,7 @@
         class="text-center text-white mt-4"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>CursoFrontEnd Kibernum</strong>
+        {{ new Date().getFullYear() }} — <strong>CursoFrontEnd Kibernum</strong> <p>by Nelcarca</p>
       </v-col>
     </v-row>
     </v-footer>
@@ -57,5 +65,7 @@ export default {
 }
 </script>
 <style scoped>
-
+*{
+  background-image: "./assets/ComicBG2.jpg";
+}
 </style>

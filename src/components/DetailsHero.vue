@@ -1,55 +1,57 @@
 <template>
-  <v-card
-    class="mx-auto hero"
-    max-width="434"
-    tile
-  >
-    <v-img
-      height="100%"
-      :src="hero.thumbnail.path + '.' + hero.thumbnail.extension"
-      :alt="hero.name"
+  <v-container>
+    <nav class="mx-auto mb-7">
+    <router-link to="/">Inicio
+    <v-icon
+      large
+      color="black darken-2"
     >
-      <v-row
-        align="end"
-        class="fill-height"
+      mdi-home-circle
+    </v-icon>
+    </router-link>
+  </nav>
+  <v-divider></v-divider>
+    <v-card
+    :loading="loading"
+      v-model="heros"
+      class="mx-auto hero"
       >
-        <v-col
-          align-self="start"
-          class="pa-0"
-          cols="12"
-        >
-          <v-avatar
-            class="profile"
-            color="grey"
-            size="164"
-            tile
-          >
-            <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
-          </v-avatar>
-        </v-col>
-        <v-col class="py-0">
-          <v-list-item
-            color="rgba(0, 0, 0, .4)"
-            dark
-          >
-            <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                Marcus Obrien
-              </v-list-item-title>
-              <v-list-item-subtitle>Network Engineer</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-col>
-      </v-row>
-    </v-img>
-  </v-card>
+      <v-card-title>{{heros.name}}</v-card-title>
+      <v-img
+              max-height="220"
+              :src="heros.thumbnail.path + '.' + heros.thumbnail.extension"
+              :alt="heros.name"
+              contain
+            >
+            </v-img>
+      
+      <h1 v-if="heros.description === ''">
+          No hay descripción disponible <br>
+          Lo lamentamos mucho, hablaremos con Marvel 77
+      </h1>
+      <h3 v-else>
+          {{ heros.description }}
+      </h3>
+
+    </v-card>
+  </v-container>
 </template>
 
 <script>
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
 export default {
-   props: ["hero"],
-};
+  setup () {
+   const store = useStore()
+   const heros = computed(() =>{
+     return store.state.HerosSelected
+   })
 
+   return {
+     heros
+   }
+ }
+}
 </script>
 
 <style>

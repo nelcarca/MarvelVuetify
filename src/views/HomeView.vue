@@ -1,6 +1,5 @@
 <template>
-  <h1>Home</h1>
-  <ListHeros/>
+  <ListHeros class="bg-grey-darken-4"/>
 </template>
 
 <script>
@@ -18,3 +17,4 @@ export default defineComponent({
   },
 });
 </script>
+
