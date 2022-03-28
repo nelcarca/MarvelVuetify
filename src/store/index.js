@@ -42,6 +42,17 @@ export default createStore({
     },
     selectedHeros ({commit}, payload) {
       commit ('setHerosSelected', payload)
+    },
+    filterByName({commit, state}, name) {
+      const formatName = name.toLowerCase()
+      const results = state.heros.filter((hero)=>{
+        const heroName = hero.name.toLowerCase()
+
+        if(heroName.includes(formatName)) {
+          return hero
+        }
+      })
+      commit('setHerosFilter', results)
     }
   },
   modules: {

@@ -1,22 +1,22 @@
 <template>
-  <v-container>
+<div class="bg-grey-darken-4">
+  <v-container class="body">
     <nav class="mx-auto mb-7">
-    <router-link to="/">Inicio
+    <router-link to="/" color="success">Inicio
     <v-icon
-      large
-      color="black darken-2"
+      x-large
+      color="white"
     >
       mdi-home-circle
     </v-icon>
     </router-link>
-  </nav>
+    </nav>
   <v-divider></v-divider>
     <v-card
-    :loading="loading"
       v-model="heros"
-      class="mx-auto hero"
+      class="mx-auto hero bg-black"
       >
-      <v-card-title>{{heros.name}}</v-card-title>
+      <v-card-title class="justify-center">{{heros.name}}</v-card-title>
       <v-img
               max-height="220"
               :src="heros.thumbnail.path + '.' + heros.thumbnail.extension"
@@ -24,17 +24,19 @@
               contain
             >
             </v-img>
-      
-      <h1 v-if="heros.description === ''">
-          No hay descripción disponible <br>
-          Lo lamentamos mucho, hablaremos con Marvel 77
-      </h1>
-      <h3 v-else>
+      <v-card-text  class="mx-auto">
+      <h2 v-if="heros.description === ''" class="text-white">
+         <br> No hay descripción disponible <br>
+          Lo lamentamos mucho, hablaremos con Marvel.
+      </h2>
+      <h3 v-else class="text-white">
           {{ heros.description }}
       </h3>
+      </v-card-text>
 
     </v-card>
   </v-container>
+</div>
 </template>
 
 <script>
@@ -55,5 +57,4 @@ export default {
 </script>
 
 <style>
-
 </style>

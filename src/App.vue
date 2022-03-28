@@ -30,8 +30,9 @@
         />
 
       </div>
-      </router-link>
+    </router-link>
       <v-spacer></v-spacer>
+        <SearchName/>
         <v-btn variant="text" icon="mdi-magnify" ></v-btn>
       </v-app-bar>
       <router-view/>
@@ -55,9 +56,13 @@
 </template>
 
 <script>
-
+import SearchName from '@/components/SearchName'
 export default {
   name: 'App',
+
+  components: {
+    SearchName,
+  },
 
   data: () => ({
     

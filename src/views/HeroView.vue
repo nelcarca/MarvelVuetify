@@ -4,7 +4,8 @@
    
       <v-flex xs12 sm6 v-for="hero in heros" :key="hero.id" >
          <CardHero :payload="hero"></CardHero>
-      </v-flex>
+     </v-flex>
+     <Pagination/>
 
    </v-layout>
    </v-container>
@@ -13,6 +14,7 @@
 <script>
 import HeroServices from './../services/HeroServices'
 import CardHero from './../components/CardHero.vue'
+import Pagination from '@/components/Pagination'
 
 export default{
    name : "HeroView",
@@ -23,6 +25,7 @@ export default{
    },
    components: {
     CardHero,
+    Pagination,
    },
    methods : {
       async getHeros(){

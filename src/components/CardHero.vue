@@ -51,15 +51,10 @@
               </div>
             </v-card-text>
             <v-divider></v-divider>
-            <v-card>
-              <h4 v-for="name in names" :key=name.id>
-              {{ hero.comics.items}}
-              </h4>
-            </v-card>
-            <v-divider></v-divider>
             <v-card-actions>
               <router-link :to="{name: 'herodetails', params:{id:hero.id}}" transition="fab-transition">
-              <v-btn @click="selectedHero(hero)">Más detalles</v-btn>
+              <v-btn @click="selectedHero(hero)" flat
+              color="secondary">Más detalles</v-btn>
               </router-link>
               <v-btn @click="conocerMas = false">Cerrar</v-btn>
             </v-card-actions>
